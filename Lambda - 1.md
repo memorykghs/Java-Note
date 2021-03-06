@@ -96,9 +96,18 @@ public interface testInterface {
     void print();
 }
 ```
-上面這個例子就不是一個函式介面，多個抽象方法應定義預設方法。所以把其中一個方法定義為預設方法就可以通過編譯。
+上面這個例子就不是一個函式介面，多個抽象方法應定義 `default` 方法，所以把其中一個方法定義為預設方法就可以通過編譯。
 
-需要注意的是，單純的介面方法是不能擁有實體的，但標註為 `@FunctionalInterface` 的介面中的 `default` 方法可以有實體。
+需要注意的是，單純的介面方法是不能擁有實體的，但標註為 `@FunctionalInterface` 的介面中的 `default` 方法可以有實體，下面這個例子就可以通過編譯。
+```java
+@FunctionalInterface
+public interface testInterface {
+    default void println(){
+        system.out.println("Hello");
+    };
+    void print();
+}
+```
 
 ## 參考
 * Java SE 技術手冊
